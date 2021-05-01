@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+  <data-sources />
+  <form-beans >
+    <form-bean name="indexForm" type="com.yourcompany.struts.form.IndexForm" />
+    <form-bean name="accountypeForm" type="com.yourcompany.struts.form.AccountypeForm" />
+    <form-bean name="transactiontypeForm" type="com.yourcompany.struts.form.TransactiontypeForm" />
+    <form-bean name="fundtransferForm" type="com.yourcompany.struts.form.FundtransferForm" />
+    <form-bean name="viewstatementForm" type="com.yourcompany.struts.form.ViewstatementForm" />
+    <form-bean name="cashwithdrawForm" type="com.yourcompany.struts.form.CashwithdrawForm" />
+
+  </form-beans>
+
+  <global-exceptions />
+  <global-forwards />
+  <action-mappings >
+    <action
+      attribute="indexForm"
+      input="/form/index.jsp"
+      name="indexForm"
+      path="/index"
+      scope="request"
+      type="com.yourcompany.struts.action.IndexAction">
+      
+       <forward name="acctype" path="/form/accountype.jsp" redirect="true">
+    </forward>
+      
+    </action>
+    <action
+      attribute="accountypeForm"
+      input="/form/accountype.jsp"
+      name="accountypeForm"
+      path="/accountype"
+      scope="request"
+      type="com.yourcompany.struts.action.AccountypeAction">
+      <forward name="transtype" path="/form/transactiontype.jsp"></forward>
+      
+    </action>
+    <action
+      attribute="transactiontypeForm"
+      input="/form/transactiontype.jsp"
+      name="transactiontypeForm"
+      path="/transactiontype"
+      scope="request"
+      type="com.yourcompany.struts.action.TransactiontypeAction">
+      <set-property property="cancellable" value="true" />
+    </action>
+    <action
+      attribute="fundtransferForm"
+      input="/form/fundtransfer.jsp"
+      name="fundtransferForm"
+      path="/fundtransfer"
+      scope="request"
+      type="com.yourcompany.struts.action.FundtransferAction">
+      <set-property property="cancellable" value="true" />
+    </action>
+    <action
+      attribute="viewstatementForm"
+      input="/form/viewstatement.jsp"
+      name="viewstatementForm"
+      path="/viewstatement"
+      scope="request"
+      type="com.yourcompany.struts.action.ViewstatementAction">
+      <set-property property="cancellable" value="true" />
+    </action>
+    <action
+      attribute="cashwithdrawForm"
+      input="/form/cashwithdraw.jsp"
+      name="cashwithdrawForm"
+      path="/cashwithdraw"
+      scope="request"
+      type="com.yourcompany.struts.action.CashwithdrawAction">
+      <set-property property="cancellable" value="true" />
+    </action>
+   
+  </action-mappings>
+
+  <message-resources parameter="com.yourcompany.struts.ApplicationResources" />
+</struts-config>
+
